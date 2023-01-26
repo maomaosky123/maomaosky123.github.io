@@ -3,6 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
+  <audio autoplay="autopaly" loop=“loop” id="audios">
+    <source src="https://www.joy127.com/url/98352.mp3">
+</audio>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>跨年倒计时</title>
@@ -353,6 +356,33 @@
       newYear()
     }, 1000)
   </script>
+      <script>
+        function autoPlayMusic() {
+            function musicInBrowserHandler() {
+                musicPlay(true);
+                document.body.removeEventListener('touchstart', musicInBrowserHandler);
+            }
+            document.body.addEventListener('touchstart', musicInBrowserHandler);
+            function musicInWeixinHandler() {
+                musicPlay(true);
+                document.addEventListener("WeixinJSBridgeReady", function() {
+                    musicPlay(true);
+                }, false);
+                document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+            }
+            document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+        }
+    
+        function musicPlay(isPlay) {
+            var media = document.querySelector('#bg-music');
+            if (isPlay && media.paused) {
+                media.play();
+            }
+            if (!isPlay && !media.paused) {
+                media.pause();
+            }
+        }
+    </script>
 </body>
 
 </html>
