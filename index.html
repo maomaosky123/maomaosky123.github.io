@@ -3,9 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <audio autoplay="autopaly" id="audios">
-    <source src="http://music.163.com/song/media/outer/url?id=16957723.mp3">
-</audio>
 <!--🚫请不要盗取本人的源代码🚫-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -383,6 +380,30 @@
     }
 
   </script>
+<div id="audioBox">
+    <script type="text/javascript">
+        window.onload = function () {
+            var arr = [
+                    "http://ws.stream.qqmusic.qq.com/C400000p6Izp0P3Mqs.m4a?guid=688249824&vkey=47A12CF24371801F3CB48556F2D05C22847AFA92B41980A106B5D53CED78FDA7D56C6A01920EE827222EE91244A30BE0E9312231D1FB1503&uin=&fromtag=120032",
+                    "http://music.163.com/song/media/outer/url?id=16957723.mp3"
+                    ]; //把需要播放的歌曲从后往前排，这里已添加两首音乐，可继续添加多个音乐
+            var myAudio = new Audio();
+            myAudio.preload = true;
+            myAudio.controls = true;
+            myAudio.src = arr.pop(); // 每次读数组最后一个元素
+            myAudio.addEventListener('ended', playEndedHandler, false);
+            myAudio.play();
+            document.getElementById("audioBox").appendChild(myAudio);
+            myAudio.loop = false; // 禁止循环，否则无法触发ended事件
+            function playEndedHandler() {
+                myAudio.src = arr.pop();
+                myAudio.play();
+                console.log(arr.length);
+                !arr.length && myAudio.removeEventListener('ended', playEndedHandler, false);//只有一个元素时解除绑定
+            }
+        }
+    </script>
+</div>
 
 
 </body>
