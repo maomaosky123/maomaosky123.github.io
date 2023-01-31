@@ -381,6 +381,16 @@
             media.pause();
         }
     }
+document.addEventListener('DOMContentLoaded', function () {
+    function audioAutoPlay() {
+        music.play();
+ 
+        backMusic.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            music.play();
+            backMusic.play();
+        }, false);
+
   </script>
 
 
