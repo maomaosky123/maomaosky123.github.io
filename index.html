@@ -356,6 +356,7 @@
     setInterval(() => {
       newYear()
     }, 1000)
+
   </script>
       <script>
         function autoPlayMusic() {
@@ -384,15 +385,6 @@
             }
         }
     </script>
-<script>
-const loader = new THREE.AudioLoader();
-            loader.load(file, function (buffer) {
-                audio.setBuffer(buffer);
-                audio.play();
-                analyser = new THREE.AudioAnalyser(audio, fftSize);
-                init();
-            });
-</script>
 </body>
 
 </html>
