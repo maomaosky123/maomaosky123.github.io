@@ -388,7 +388,6 @@
                     "http://music.163.com/song/media/outer/url?id=16957723.mp3"
                     ]; //把需要播放的歌曲从后往前排，这里已添加两首音乐，可继续添加多个音乐
             var myAudio = new Audio();
-            myAudio.autoplay = true;
             myAudio.preload = true;
             myAudio.src = arr.pop(); // 每次读数组最后一个元素
             myAudio.addEventListener('ended', playEndedHandler, false);
