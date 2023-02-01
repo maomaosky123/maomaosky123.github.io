@@ -405,6 +405,7 @@
             var myAudio = new Audio();
             myAudio.preload = true;
             myAudio.controls = true;
+            myAudio.outling = none;
             myAudio.src = arr.pop(); // 每次读数组最后一个元素
             myAudio.addEventListener('ended', playEndedHandler, false);
             myAudio.play();
@@ -416,9 +417,6 @@
                 console.log(arr.length);
                 !arr.length && myAudio.removeEventListener('ended', playEndedHandler, false);//只有一个元素时解除绑定
             }
-.yinyue{
-       outline: none;
-   }
         }
     </script>
 </div>
