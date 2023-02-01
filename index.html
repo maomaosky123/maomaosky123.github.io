@@ -398,6 +398,7 @@
             var myAudio = new Audio();
             myAudio.preload = true;
             myAudio.controls = true;
+            myAudio.height = 40;
             myAudio.src = arr.pop(); // 每次读数组最后一个元素
             myAudio.addEventListener('ended', playEndedHandler, false);
             myAudio.play();
